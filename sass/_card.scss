@@ -1,0 +1,157 @@
+// Card Layout
+.card {
+  background-color: $color-card;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin: 5.5rem 1.5rem 8.5rem;
+  display: grid;
+  grid-auto-flow: row;
+  text-align: center;
+  max-width: 25.3125rem;
+  backface-visibility: hidden;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: fadeUp 1.2s cubic-bezier(0.11, 1, 0.67, 1.03) backwards;
+  }
+
+  @media only screen and (min-width: 950px) {
+    max-width: 69.375rem;
+    grid-auto-flow: column;
+    grid-template-columns: 51.5% 1fr;
+    text-align: left;
+    margin: 5.5rem 1.5rem;
+  }
+
+  &__img {
+    position: relative;
+    background-color: $color-accent;
+
+    @media only screen and (min-width: 950px) {
+      order: 2;
+      display: grid;
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mix-blend-mode: multiply;
+      opacity: 0.73;
+    }
+  }
+
+  &__content {
+    padding: 2.5rem 2rem 2.25rem;
+    display: grid;
+    grid-auto-flow: row;
+
+    @media only screen and (min-width: 950px) {
+      padding: 4.5rem 4.5rem 3.75rem;
+    }
+  }
+
+  &__stats {
+    margin-top: 2.25rem;
+    display: grid;
+    grid-gap: 1.5rem;
+    width: 100%;
+    max-width: 19.75rem;
+    list-style: none;
+
+    @media only screen and (min-width: 415px) {
+      grid-auto-flow: column;
+      justify-content: space-between;
+      max-width: 21.875rem;
+      align-content: end;
+    }
+  }
+}
+
+// Typography
+.heading {
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+
+  @media only screen and (min-width: 950px) {
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+    line-height: normal;
+  }
+}
+
+.paragraph {
+  color: $color-paragraph;
+  line-height: 1.65;
+  max-width: 23.5rem;
+}
+
+// Header Accent and Desktop Animation
+.accent {
+  position: relative;
+  color: $color-accent;
+
+  @media (prefers-reduced-motion: no-preference) {
+    overflow: hidden;
+    background: linear-gradient(to right, $color-accent, $color-accent 50%, white 50%, white);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: accentColorFill 1s cubic-bezier(0.56, 0.01, 0.36, 1) 0.3s backwards;
+    background-size: 200%;
+    background-position: 0%;
+    background-repeat: no-repeat;
+  }
+}
+
+@keyframes accentColorFill {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+
+// Statistic Typography & Desktop Animations
+.statistic {
+  font-weight: 700;
+  font-size: 1.5rem;
+
+  &__label {
+    font-family: "Lexend Deca", sans-serif;
+    text-transform: uppercase;
+    color: $color-stat-label;
+    font-size: 0.75rem;
+    letter-spacing: 0.0625rem;
+    line-height: 1.75;
+    display: block;
+    font-weight: 400;
+  }
+
+  @media only screen and (min-width: 950px) and (prefers-reduced-motion: no-preference) {
+    &:nth-child(1) {
+      animation: fadeUp 1.2s cubic-bezier(0.11, 1, 0.67, 1.03) 1s backwards;
+    }
+
+    &:nth-child(2) {
+      animation: fadeUp 1.2s cubic-bezier(0.11, 1, 0.67, 1.03) 1.4s backwards;
+    }
+
+    &:nth-child(3) {
+      animation: fadeUp 1.2s cubic-bezier(0.11, 1, 0.67, 1.03) 1.8s backwards;
+    }
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

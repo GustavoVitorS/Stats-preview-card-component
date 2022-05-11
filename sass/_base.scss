@@ -1,0 +1,43 @@
+$color-body: rgb(9, 11, 26);
+$color-card: rgb(27, 25, 56);
+$color-accent: rgb(170, 92, 219);
+$color-white: rgb(255, 255, 255);
+$color-paragraph: rgba(255, 255, 255, 0.75);
+$color-stat-label: rgba(255, 255, 255, 0.6);
+
+body {
+  background-color: $color-body;
+  color: $color-white;
+  font-size: 0.9375rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid-auto-flow: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.attribution {
+  text-align: center;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.875rem;
+
+  & a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
